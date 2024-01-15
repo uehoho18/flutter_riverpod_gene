@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod_gene/main.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends ConsumerWidget {
   const MyHomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    name = 'uetomo';
+  Widget build(BuildContext context, WidgetRef ref) {
+    final name = ref.watch(nameProvider);
     return Scaffold(
       appBar: AppBar(),
-      body: const Column(children: [
+      body: Column(children: [
         Center(
-          child: Text(''),
+          child: Text(name),
         ),
       ]),
     );
