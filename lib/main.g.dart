@@ -6,7 +6,7 @@ part of 'main.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$fetchUserHash() => r'578f3d5adcc46a2a606f2e666ceb11df6c0a2d82';
+String _$fetchUserHash() => r'f09e4ca8eeaf645562671fe1d30990d43fb14624';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -39,15 +39,15 @@ class FetchUserFamily extends Family<AsyncValue<User>> {
   const FetchUserFamily();
 
   /// See also [fetchUser].
-  FetchUserProvider call(
-    String input,
-    int someValue,
-    bool secoundValue,
-  ) {
+  FetchUserProvider call({
+    required dynamic input,
+    required int someValue,
+    required bool secoundValue,
+  }) {
     return FetchUserProvider(
-      input,
-      someValue,
-      secoundValue,
+      input: input,
+      someValue: someValue,
+      secoundValue: secoundValue,
     );
   }
 
@@ -56,9 +56,9 @@ class FetchUserFamily extends Family<AsyncValue<User>> {
     covariant FetchUserProvider provider,
   ) {
     return call(
-      provider.input,
-      provider.someValue,
-      provider.secoundValue,
+      input: provider.input,
+      someValue: provider.someValue,
+      secoundValue: provider.secoundValue,
     );
   }
 
@@ -80,11 +80,11 @@ class FetchUserFamily extends Family<AsyncValue<User>> {
 /// See also [fetchUser].
 class FetchUserProvider extends AutoDisposeFutureProvider<User> {
   /// See also [fetchUser].
-  FetchUserProvider(
-    String input,
-    int someValue,
-    bool secoundValue,
-  ) : this._internal(
+  FetchUserProvider({
+    required dynamic input,
+    required int someValue,
+    required bool secoundValue,
+  }) : this._internal(
           (ref) => fetchUser(
             ref as FetchUserRef,
             input: input,
@@ -116,7 +116,7 @@ class FetchUserProvider extends AutoDisposeFutureProvider<User> {
     required this.secoundValue,
   }) : super.internal();
 
-  final String input;
+  final dynamic input;
   final int someValue;
   final bool secoundValue;
 
@@ -166,7 +166,7 @@ class FetchUserProvider extends AutoDisposeFutureProvider<User> {
 
 mixin FetchUserRef on AutoDisposeFutureProviderRef<User> {
   /// The parameter `input` of this provider.
-  String get input;
+  dynamic get input;
 
   /// The parameter `someValue` of this provider.
   int get someValue;
@@ -180,7 +180,7 @@ class _FetchUserProviderElement extends AutoDisposeFutureProviderElement<User>
   _FetchUserProviderElement(super.provider);
 
   @override
-  String get input => (origin as FetchUserProvider).input;
+  dynamic get input => (origin as FetchUserProvider).input;
   @override
   int get someValue => (origin as FetchUserProvider).someValue;
   @override
